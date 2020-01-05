@@ -19,7 +19,7 @@ Describe 'jwk-to-pem'
 		The output should equal '0xCDBA'
 	    End
 
-	    It 'produces no output with no argument'
+	    It 'produces no output when called with no argument'
 		When call to_hex
 		The output should equal ''
 	    End
@@ -31,39 +31,49 @@ Describe 'jwk-to-pem'
 			printf "%s" "$1"
 		}
 
-		It 'decodes hello'
+		It 'decodes base64url encoded data'
 			When call base64url_decode 'aGVsbG8='
 			The output should equal 'hello'
 		End
 
-		It 'decodes underscores'
+		It 'correctly decodes data with underscores'
 			When call base64url_decode 'b2s_'
 			The output should equal 'ok?'
 		End
 
-		It 'decodes dashes'
+		It 'correctly decodes data with dashes'
 			When call base64url_decode 'aGl-'
 			The output should equal 'hi~'
 		End
 	End
 
 	Describe 'base64_pad()'
-		It 'pads 2-char strings with 2 ='
+		It 'pads data to multiples of 4'
+			When call base64_pad "123456789"
+			The length of the output should equal 12
+		End
+
+		It 'pads data with ='
+			When call base64_pad "123"
+			The output should equal '123='
+		End
+
+		It 'pads strings of length 2 with =='
 			When call base64_pad 'YQ'
 			The output should equal 'YQ=='
 		End
 
-		It 'pads 7-char strings with 1 ='
+		It 'pads strings of length 7 with ='
 			When call base64_pad 'aGVsbG8'
 			The output should equal 'aGVsbG8='
 		End
 
-		It 'pads 4-char strings with no ='
+		It 'does not pad strings of length 4'
 			When call base64_pad 'Y2F0'
 			The output should equal 'Y2F0'
 		End
 
-		It 'does not pad 0-length string'
+		It 'does not pad strings of length 0'
 			When call base64_pad
 			The output should equal ''
 		End
