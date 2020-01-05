@@ -2,7 +2,17 @@
 
 main() {
 	JWK_FILE="$1"
-	rsa_privkey_asn1_genstring
+	rsa_privkey_asn1_genstring \
+	    | generate_der_key \
+	    | generate_pem_key
+}
+
+generate_der_key() {
+    openssl asn1parse -genconf /dev/stdin
+}
+
+generate_pem_key() {
+    openssl rsa -inform der
 }
 
 rsa_privkey_asn1_genstring() {
