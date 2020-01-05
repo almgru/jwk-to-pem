@@ -14,12 +14,12 @@ Describe 'jwk-to-pem'
 			The output should equal 'hello'
 		End
 
-		It 'handles decodes underscores'
+		It 'decodes underscores'
 			When call base64url_decode 'b2s_'
 			The output should equal 'ok?'
 		End
 
-		It 'handles decodes dashes'
+		It 'decodes dashes'
 			When call base64url_decode 'aGl-'
 			The output should equal 'hi~'
 		End
