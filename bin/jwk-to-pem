@@ -40,7 +40,10 @@ base64_pad() {
 }
 
 to_hex() {
-	echo "0x$(printf "%s" "$1" | xxd -ps -u | tr -d '\n\r')"
+    hex="$(printf "%s" "$1" | xxd -ps -u | tr -d '\n\r')"
+    if test "${#hex}" -gt 0; then
+	echo "0x$hex"
+    fi
 }
 
 # Do not run main if script is sourced
