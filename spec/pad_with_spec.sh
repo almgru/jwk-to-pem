@@ -7,7 +7,7 @@ Describe 'pad_with()'
 	    Data 'to pad'
 	    When call pad_with
 	    The status should be success
-	    The output should match '*to\ pad*'
+	    The output should match '*'
 	End
 
 	It 'does not pad data from argument'
