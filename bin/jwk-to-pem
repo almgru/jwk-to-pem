@@ -30,9 +30,11 @@ json_to_hex() {
 }
 
 pad_with() {
+	test $# -gt 2 && return 1
+
 	read -r padded
-	until test "$(( ${#padded} % $2 ))" -eq 0; do
-		padded="${padded}$1"
+	until test "$(( ${#padded} % ${2-4} ))" -eq 0; do
+		padded="${padded}${1-=}"
 	done
 	printf "%s" "$padded"
 }
