@@ -10,3 +10,6 @@ Simple script to convert RSA private keys from JWK to PEM.
 - OpenSSL/LibreSSL
 - jq
 - xxd
+
+## Run tests
+Install [shellspec](https://shellspec.info) and run `shellspec`.
