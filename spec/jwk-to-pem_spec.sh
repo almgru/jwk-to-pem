@@ -3,6 +3,23 @@
 Describe 'jwk-to-pem'
 	Include ./bin/jwk-to-pem
 
+	Describe 'base64url_decode()'
+		It 'decodes hello'
+			When call base64url_decode 'aGVsbG8='
+			The output should equal 'hello'
+		End
+
+		It 'handles decodes underscores'
+			When call base64url_decode 'Pz8_'
+			The output should equal 'ok?'
+		End
+
+		It 'handles decodes dashes'
+			When call base64url_decode 'aGI-'
+			The output should equal 'hi~'
+		End
+	End
+
 	Describe 'base64_pad()'
 		It 'pads 2-char strings with 2 ='
 			When call base64_pad 'YQ'
