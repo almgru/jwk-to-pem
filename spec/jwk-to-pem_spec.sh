@@ -4,6 +4,11 @@ Describe 'jwk-to-pem'
 	Include ./bin/jwk-to-pem
 
 	Describe 'base64url_decode()'
+		# base64_pad stub that just echoes its arg
+		base64_pad() {
+			printf "%s" "$1"
+		}
+
 		It 'decodes hello'
 			When call base64url_decode 'aGVsbG8='
 			The output should equal 'hello'
