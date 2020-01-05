@@ -2,23 +2,23 @@
 
 main() {
 	JWK_FILE="$1"
+	gen_asn1
+}
 
-	cat <<- EOF
-		asn1 = SEQUENCE:private_key
-		
-		[private key]
-		
-		version = INTEGER:0
-		
-		n = INTEGER:$(json_to_hex 'n')
-		e = INTEGER:$(json_to_hex 'e')
-		d = INTEGER:$(json_to_hex 'd')
-		p = INTEGER:$(json_to_hex 'p')
-		q = INTEGER:$(json_to_hex 'q')
-		exp1 = INTEGER:$(json_to_hex 'dp')
-		exp2 = INTEGER:$(json_to_hex 'dq')
-		coeff = INTEGER:$(json_to_hex 'qi')
-	EOF
+rsa_privkey_asn1_genstring() {
+	echo "asn1 = SEQUENCE:private_key"
+	echo
+	echo "[private key]"
+	echo "version = INTEGER:0"
+	echo
+	echo "n = INTEGER:$(json_to_hex 'n')"
+	echo "e = INTEGER:$(json_to_hex 'e')"
+	echo "d = INTEGER:$(json_to_hex 'd')"
+	echo "p = INTEGER:$(json_to_hex 'p')"
+	echo "q = INTEGER:$(json_to_hex 'q')"
+	echo "exp1 = INTEGER:$(json_to_hex 'dp')"
+	echo "exp2 = INTEGER:$(json_to_hex 'dq')"
+	echo "coeff = INTEGER:$(json_to_hex 'qi')"
 }
 
 json_to_hex() {
