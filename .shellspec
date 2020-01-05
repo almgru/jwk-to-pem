@@ -1,3 +1,4 @@
+--random examples
 --shell /bin/bash
 --kcov
 --kcov-common-options "--path-strip-level=1 --include-path=./bin"
