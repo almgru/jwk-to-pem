@@ -1,1 +1,3 @@
-# --kcov-common-options "--path-strip-level=1 --include-path=. --include-pattern=.sh --exclude-pattern=/spec/,/coverage/,/report/"
+--shell /bin/bash
+--kcov
+--kcov-common-options "--path-strip-level=1 --include-path=./bin"
