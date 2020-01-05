@@ -8,7 +8,7 @@ main() {
 rsa_privkey_asn1_genstring() {
 	echo "asn1 = SEQUENCE:private_key"
 	echo
-	echo "[private key]"
+	echo "[private_key]"
 	echo "version = INTEGER:0"
 	echo
 	echo "n = INTEGER:$(json_to_hex 'n')"
