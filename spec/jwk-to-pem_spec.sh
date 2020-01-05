@@ -18,5 +18,10 @@ Describe 'jwk-to-pem'
 			When call base64_pad 'Y2F0'
 			The output should equal 'Y2F0'
 		End
+
+		It 'does not pad 0-length string'
+			When call base64_pad
+			The output should equal ''
+		End
 	End
 End
