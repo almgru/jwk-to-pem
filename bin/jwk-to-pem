@@ -2,7 +2,7 @@
 
 main() {
 	JWK_FILE="$1"
-	gen_asn1
+	rsa_privkey_asn1_genstring
 }
 
 rsa_privkey_asn1_genstring() {
