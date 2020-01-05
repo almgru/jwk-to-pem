@@ -1,4 +1,4 @@
-#shellcheck shell=sh
+#shellspec shell=sh
 
 Describe 'jwk-to-pem'
 	Include ./bin/jwk-to-pem
