@@ -22,7 +22,7 @@ Describe 'rsa_privkey_asn1_genstring()'
 
 		When call rsa_privkey_asn1_genstring
 		The line 1 of output should match "asn1*=*SEQUENCE:private_key"
-		The output should match '*[private\ key]*'
+		The output should match '*[private_key]*'
 		The output should match '*version*=*INTEGER:0*'
 		The output should match '*n*=*INTEGER:0xadd1114f63620d99*'
 		The output should match '*e*=*INTEGER:0x10001*'
