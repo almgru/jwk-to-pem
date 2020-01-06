@@ -16,19 +16,19 @@ generate_pem_key() {
 }
 
 rsa_privkey_asn1_genstring() {
-	echo "asn1 					= SEQUENCE:private_key"
+	echo "asn1 = SEQUENCE:private_key"
 	echo
 	echo "[private_key]"
-	echo "version 				= INTEGER:0"
+	echo "version = INTEGER:0"
 	echo
-	echo "modulus 				= INTEGER:$(json_to_hex 'n')"
-	echo "public_exponent 		= INTEGER:$(json_to_hex 'e')"
-	echo "private_exponent 		= INTEGER:$(json_to_hex 'd')"
-	echo "first_prime_factor	= INTEGER:$(json_to_hex 'p')"
-	echo "second_prime_factor	= INTEGER:$(json_to_hex 'q')"
-	echo "first_CRT_exponent 	= INTEGER:$(json_to_hex 'dp')"
-	echo "second_CRT_exponent 	= INTEGER:$(json_to_hex 'dq')"
-	echo "CRT_coefficient 		= INTEGER:$(json_to_hex 'qi')"
+	echo "modulus = INTEGER:$(json_to_hex 'n')"
+	echo "public_exponent = INTEGER:$(json_to_hex 'e')"
+	echo "private_exponent = INTEGER:$(json_to_hex 'd')"
+	echo "first_prime_factor = INTEGER:$(json_to_hex 'p')"
+	echo "second_prime_factor = INTEGER:$(json_to_hex 'q')"
+	echo "first_CRT_exponent = INTEGER:$(json_to_hex 'dp')"
+	echo "second_CRT_exponent = INTEGER:$(json_to_hex 'dq')"
+	echo "CRT_coefficient = INTEGER:$(json_to_hex 'qi')"
 }
 
 json_to_hex() {
