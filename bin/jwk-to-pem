@@ -8,7 +8,7 @@ main() {
 }
 
 generate_der_key() {
-    openssl asn1parse -genconf /dev/stdin
+    openssl asn1parse -genconf /dev/stdin -out /dev/stdout
 }
 
 generate_pem_key() {
