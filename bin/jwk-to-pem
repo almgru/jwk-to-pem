@@ -2,7 +2,7 @@
 
 main() {
 	JWK_FILE="$1"
-	rsa_privkey_asn1_genstring \
+	generate_asn1_genconf \
 	    | generate_der_key \
 	    | generate_pem_key
 }
@@ -15,7 +15,7 @@ generate_pem_key() {
     openssl rsa -inform der
 }
 
-rsa_privkey_asn1_genstring() {
+generate_asn1_genconf() {
 	echo "asn1 = SEQUENCE:private_key"
 	echo
 	echo "[private_key]"

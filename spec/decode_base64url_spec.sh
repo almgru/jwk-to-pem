@@ -1,6 +1,6 @@
 #shellspec shell=sh
 
-Describe 'base64url_decode()'
+Describe 'decode_base64url()'
 	Include ./bin/jwk-to-pem
 
 	It 'decodes base64url encoded data'

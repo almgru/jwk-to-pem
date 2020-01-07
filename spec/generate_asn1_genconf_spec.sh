@@ -1,6 +1,6 @@
 #shellspec shell=sh
 
-Describe 'rsa_privkey_asn1_genstring()'
+Describe 'generate_asn1_genconf()'
 	Include ./bin/jwk-to-pem
 
 	# shellcheck disable=SC2034
@@ -20,7 +20,7 @@ Describe 'rsa_privkey_asn1_genstring()'
 			esac
 		}
 
-		When call rsa_privkey_asn1_genstring
+		When call generate_asn1_genconf
 		The line 1 of output should match "asn1*=*SEQUENCE:private_key"
 		The output should match '*[private_key]*'
 		The output should match '*version*=*INTEGER:0*'
