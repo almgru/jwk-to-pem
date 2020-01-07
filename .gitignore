@@ -1,4 +1,5 @@
 coverage/
 file
 report/
-res/test/
+res/test/*
+!res/test/example-jwk-rsa-private-key.json
