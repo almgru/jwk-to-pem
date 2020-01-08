@@ -6,8 +6,9 @@ SEED="$(shuf -i 0-65535 -n 1)"
 printf "Using seed: %s\n\n" "$SEED"
 
 for shell in \
+    /bin/sh \
     /bin/bash \
-    '/bin/busybox sh' \
+    /bin/ash \
     /bin/dash \
     /bin/ksh \
     /bin/mksh \
